@@ -69,8 +69,21 @@ test('checks distinguish ready from waiting for LAN and never return credential 
   assert.deepEqual(offline.errors, []);
   assert.deepEqual(offline.networks, []);
   assert.equal((await checkMac({ ...runtime, root, nodeVersion: '22.8.0' })).exitCode, 1);
+  const shared = await checkMac({ ...runtime, root, interfaces: {
+    en0: [{ family: 'IPv4', internal: false, address: '100.125.5.57' }],
+  } });
+  assert.equal(shared.exitCode, 0);
+  assert.equal(shared.networks.length, 1);
   assert.deepEqual((await readdir(root)).sort(), ['.env.minimax', '.env.vidu']);
 });
+
+test('installed macOS Bonjour executable is detected using the real system tools',
+  { skip: process.platform !== 'darwin' }, async t => {
+    const root = await folder(t);
+    await configured(root);
+    const report = await checkMac({ root, interfaces: runtime.interfaces });
+    assert(!report.errors.some(error => error.includes('dns-sd')), JSON.stringify(report.errors));
+  });
 
 test('setup CLI reports paths and status while keeping the generated token out of output', async t => {
   const root = await folder(t);

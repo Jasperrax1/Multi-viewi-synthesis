@@ -37,7 +37,9 @@ export async function setupMac(root = project) {
 function privateIpv4(address) {
   const parts = address.split('.').map(Number);
   return parts.length === 4 && parts.every(n => Number.isInteger(n) && n >= 0 && n <= 255) &&
-    (parts[0] === 10 || parts[0] === 192 && parts[1] === 168 || parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31);
+    (parts[0] === 10 || parts[0] === 192 && parts[1] === 168 ||
+      parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31 ||
+      parts[0] === 100 && parts[1] >= 64 && parts[1] <= 127);
 }
 
 /** Read-only deployment checks. Providers are never contacted and runtime identity is not created. */
@@ -55,7 +57,7 @@ export async function checkMac({ root = project, platform = process.platform,
     if (!tools) errors.push('缺少 Xcode Command Line Tools，请运行 xcode-select --install 并完成系统安装。');
     else if (!available('/usr/bin/swift', ['--version'])) errors.push('Swift 工具链不可用，请检查 Command Line Tools。');
     if (!available('/usr/bin/openssl', ['version'])) errors.push('系统 OpenSSL 不可用。');
-    if (!available('/usr/bin/test', ['-x', '/usr/bin/dns-sd'])) errors.push('系统 dns-sd 不可用。');
+    if (!available('/bin/test', ['-x', '/usr/bin/dns-sd'])) errors.push('系统 dns-sd 不可用。');
   }
   const configurations = [];
   for (const name of names) {
