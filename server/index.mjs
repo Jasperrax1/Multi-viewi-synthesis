@@ -1,0 +1,12 @@
+import { createCameraServer } from './app.mjs';
+import { networkInterfaces } from 'node:os';
+const port = Number(process.env.PORT ?? 8787);
+if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT must be 1–65535');
+const app = await createCameraServer();
+await app.listen(port);
+console.log('P0 desktop SYNTHETIC source; trusted LAN HTTP/WS only. Photos deleted on clean exit.');
+console.log(`Sender (open on this computer): http://localhost:${port}/sender.html#${app.senderToken}`);
+console.log(`One-use receiver pairing code: ${app.pairingCode}`);
+for (const list of Object.values(networkInterfaces())) for (const item of list ?? []) if (item.family === 'IPv4' && !item.internal) console.log(`Receiver/native server address: http://${item.address}:${port}`);
+let closing = false;
+for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, async () => { if (closing) return; closing = true; await app.close(); process.exit(0); });

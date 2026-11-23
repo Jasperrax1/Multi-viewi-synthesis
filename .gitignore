@@ -1,0 +1,15 @@
+node_modules/
+.runtime/
+.env
+.env.*
+*.log
+.DS_Store
+*.pem
+*.key
+*.p12
+*.p7b
+*.cer
+*.keystore
+*.jks
+playwright-report/
+test-results/

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>成片提示词 · LanCamera</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <div class="workspace">
+    <header class="page-header">
+      <div>
+        <p class="product-name">LANCAMERA / MAC</p>
+        <h1>成片提示词</h1>
+        <p class="subtitle">选择提示词版本，用于下一笔新生成。</p>
+      </div>
+      <button class="quiet-button" id="refresh" type="button">刷新</button>
+    </header>
+
+    <main class="editor-layout">
+      <aside class="sidebar" aria-label="模型与服务">
+        <section class="model-section">
+          <h2>模型预设</h2>
+          <div class="model-list" id="models" role="group" aria-label="选择要编辑的模型"></div>
+        </section>
+        <section class="service-card" aria-labelledby="service-heading">
+          <div class="service-title"><span class="status-dot" id="service-dot"></span><h2 id="service-heading">Mac 成片服务</h2></div>
+          <p id="service-message" role="status">正在检查连接…</p>
+          <p class="service-address" id="service-origin"></p>
+        </section>
+        <p class="sidebar-note">手机在「成片模型与服务」中选择本次生成使用的模型。</p>
+      </aside>
+
+      <section class="editor-card" aria-labelledby="editor-heading" aria-busy="true" id="editor-card">
+        <div class="editor-header">
+          <div>
+            <p class="eyebrow">提示词编辑</p>
+            <h2 id="editor-heading">正在载入预设…</h2>
+            <p class="recipe" id="recipe"></p>
+          </div>
+          <span class="save-state" id="save-state" role="status">载入中</span>
+        </div>
+        <section class="prompt-versions" aria-label="提示词版本">
+          <div class="version-heading">
+            <span class="eyebrow">选择编辑版本</span>
+            <span class="active-version" id="active-version" role="status">正在读取当前生效版本…</span>
+          </div>
+          <div id="prompt-versions" class="prompt-version-list" role="group" aria-label="选择提示词版本"></div>
+          <div class="version-activation">
+            <p id="version-help">切换编辑版本不会改变手机当前使用的提示词。</p>
+            <button class="quiet-button" id="activate-version" type="button" disabled>使用此版本</button>
+          </div>
+        </section>
+        <div class="input-area">
+          <label class="sr-only" for="prompt">视频生成提示词</label>
+          <textarea id="prompt" disabled spellcheck="false" placeholder="正在读取 Mac 上的提示词…" aria-describedby="prompt-help counter"></textarea>
+          <div class="input-meta">
+            <span id="prompt-help">描述运镜、方向和首尾画面的衔接。</span>
+            <span id="counter">—</span>
+          </div>
+        </div>
+        <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+        <footer class="editor-footer">
+          <div class="version-info">
+            <span class="version-label">已保存版本</span>
+            <code id="revision">—</code>
+          </div>
+          <div class="editor-actions">
+            <button class="quiet-button" id="undo" type="button" disabled>撤销修改</button>
+            <button class="primary-button" id="save" type="button" disabled><span id="save-label">保存此版本</span> <span class="shortcut" aria-hidden="true">⌘ S</span></button>
+          </div>
+        </footer>
+      </section>
+    </main>
+    <p class="page-note">已提交的任务继续使用提交时保存的提示词。</p>
+  </div>
+</body>
+</html>

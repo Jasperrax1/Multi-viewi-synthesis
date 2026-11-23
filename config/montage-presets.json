@@ -1,0 +1,29 @@
+{
+  "vidu-q2-pro-fast": {
+    "label": "Vidu Q2 Pro Fast",
+    "provider": "vidu",
+    "model": "viduq2-pro-fast",
+    "resolution": "720p",
+    "durationSeconds": 2,
+    "prompt": "以输入的首帧为起点、尾帧为终点，生成一段 2 秒钟一镜到底的360度高速环绕翻转运镜（Cinematic Barrel Roll Orbit Transition）。镜头从首帧构图出发，立即向侧方快速环绕移动，同时绕镜头自身光轴进行连续、流畅的大幅度滚转翻转（Camera Roll）。镜头在旋转初期迅速后撤拉远，产生强烈的空间纵深感和透视变化，主体在画面中快速缩小，地面、墙面与天花板随着镜头滚转形成极具冲击力的倒置视角。\n\n在中段，镜头旋转速度达到峰值，产生真实、强烈但短暂的运动模糊（Motion Blur），摄影机持续绕主体运动，视角自然从首帧方向过渡到尾帧方向，空间背景随透视连续变化。\n\n随后镜头快速向主体推近，滚转逐渐减速，画面从倾斜状态自然回正，运动模糊迅速消失，精准衔接尾帧的主体位置、姿态、构图和背景。\n整个过程必须是一条连续的真实摄影机运动，不使用硬切、淡入淡出、叠化或画面变形转场。旋转的是摄影机视角，而不是人物身体或单纯的二维画面。保持主体外观和结构稳定，人物运动自然，空间透视真实，首尾画面严格对齐输入图像。强烈电影感、广角空间透视、流畅速度曲线、高动态运镜，无新增人物、无文字、无闪烁、无黑边。"
+  },
+  "minimax-h3-highspeed": {
+    "label": "MiniMax H3 Highspeed",
+    "provider": "minimax",
+    "model": "MiniMax-H3-Highspeed",
+    "resolution": "768P",
+    "durationSeconds": 4,
+    "prompt": "2秒高速电影感环绕翻转运镜，单镜头连续拍摄。\n\n摄影机始终以画面中的舞者为视觉中心，沿人物周围做快速、流畅的小幅弧线移动，同时围绕镜头自身光轴完成一次明显的逆时针360度快速滚转翻转（Camera Barrel Roll）。逆时针以观众观看画面的方向为准：画面上沿先向左倾斜，再持续向左快速翻转360度，最后回正。\n\n镜头在翻转初期轻微后撤，人物适度缩小，但始终清晰可辨并保持在取景范围内。中段镜头高速滚转，画面产生短暂、自然的运动模糊，窗户、地面和墙面的空间透视随着镜头连续旋转变化。\n随后镜头逐渐减速、轻微推近，画面自然回正，平滑衔接输入尾帧的视角、主体位置和构图。\n整个过程是一段流畅、具有速度感的摄影机运动，不使用硬切、叠化或突然切换场景。",
+    "activeVersionId": "rotation",
+    "promptVersions": {
+      "rotation": {
+        "label": "旋转运镜",
+        "prompt": "2秒高速电影感环绕翻转运镜，单镜头连续拍摄。\n\n摄影机始终以画面中的舞者为视觉中心，沿人物周围做快速、流畅的小幅弧线移动，同时围绕镜头自身光轴完成一次明显的逆时针360度快速滚转翻转（Camera Barrel Roll）。逆时针以观众观看画面的方向为准：画面上沿先向左倾斜，再持续向左快速翻转360度，最后回正。\n\n镜头在翻转初期轻微后撤，人物适度缩小，但始终清晰可辨并保持在取景范围内。中段镜头高速滚转，画面产生短暂、自然的运动模糊，窗户、地面和墙面的空间透视随着镜头连续旋转变化。\n随后镜头逐渐减速、轻微推近，画面自然回正，平滑衔接输入尾帧的视角、主体位置和构图。\n整个过程是一段流畅、具有速度感的摄影机运动，不使用硬切、叠化或突然切换场景。"
+      },
+      "cinematic": {
+        "label": "电影运镜",
+        "prompt": "Picture 1 is the exact opening frame at 0.00s. Picture 2 is the exact ending frame at 4.00s.\n\n\nintegrated_multimodal_description: [Shot 1] A photorealistic, high-end cinematic continuous camera move, starting from the exact subjects, perspective, and composition in Picture 1. The camera begins with a controlled forward tracking movement, then accelerates into a powerful three-dimensional dolly move with a sweeping curved trajectory. Strong foreground-background parallax creates a dramatic sense of depth, scale, and physical motion. The lens passes close to existing foreground details, producing natural optical motion blur and an immersive fly-through sensation. During the middle of the shot, the camera executes one dynamic speed ramp and a precisely controlled sweeping movement, using an existing foreground occlusion or full-frame directional motion blur to bridge any major spatial difference between the two references. The environment transitions coherently without rubber-like morphing or unstable geometry. The camera then reveals the location and subjects shown in Picture 2, follows a deliberate curved approach, smoothly decelerates, and locks onto the precise final angle, scale, perspective, framing, and subject placement of Picture 2 at 4.00 seconds. Visually striking but physically believable professional cinematography, dramatic spatial movement, strong layered parallax, realistic inertia, refined motion blur, natural lighting continuity, stable subject identity, realistic textures. No random cuts, no distortion, no melting objects, no unnecessary visual effects.\n\n\noverall_soundscape: A subtle spatial rush gradually rises with the accelerating camera, followed by one powerful directional whoosh at the peak movement. The sound naturally settles into the ambience appropriate to the final scene."
+      }
+    }
+  }
+}

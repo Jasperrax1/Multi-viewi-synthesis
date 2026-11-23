@@ -1,0 +1,24 @@
+{
+  "name": "multi-viewi-synthesis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "montage:lan": "node --env-file=.env.vidu --env-file-if-exists=.env.minimax scripts/montage-lan.mjs",
+    "setup:mac": "node scripts/setup-mac.mjs",
+    "check:mac": "node scripts/setup-mac.mjs --check",
+    "health:mac": "node --env-file=.env.vidu scripts/check-montage-health.mjs",
+    "start": "npm run montage:lan --",
+    "test": "node --test tests/mac-setup.test.mjs tests/montage-preset-store.test.mjs tests/montage-prompt-editor.test.mjs tests/receiver.test.mjs tests/server.test.mjs tests/vidu-server.test.mjs",
+    "test:ui": "node --test tests/montage-prompt-versions-ui.test.mjs"
+  },
+  "dependencies": {
+    "ws": "8.22.1"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
